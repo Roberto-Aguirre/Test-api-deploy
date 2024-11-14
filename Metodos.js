@@ -9,20 +9,19 @@ const credencialesMySql = {
 };
 var query = mysql.createPool(credencialesMySql)
 
-const getEncuesta = async (req,res) => {
+const getEncuesta = async (req, res) => {
     let [first] = await query.query('SELECT * FROM forms');
-
-res.send(first);
+    res.send(first);
 }
-const postEncuesta = async (req,res) => {
+const postEncuesta = async (req, res) => {
     let valores = Object.values(req.body)
-    let date = fecha(); 
+    let date = fecha();
     try {
-        await query.query(`INSERT INTO forms(nombre,correo,telefono,mensaje,medio_contacto,momento_contacto,novedades,fecha) VALUES (?,?);`,[valores,date])
-        res.send({code:200,message: "Created succesfully"});
+        await query.query(`INSERT INTO forms(nombre,correo,telefono,mensaje,medio_contacto,momento_contacto,novedades,fecha) VALUES (?,?);`, [valores, date])
+        res.send({ code: 200, message: "Created succesfully" });
     } catch (error) {
-        res.status(400).send({code:400,message:`Error: ${error}`})
+        res.status(400).send({ code: 400, message: `Error: ${error}` })
     }
-    
+
 }
-module.exports = {getEncuesta,postEncuesta}
+module.exports = { getEncuesta, postEncuesta }
