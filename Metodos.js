@@ -2,9 +2,9 @@ const mysql = require("mysql2/promise");
 const { fecha } = require("./Utils");
 const credencialesMySql = {
     host: process.env.MYSQL_HOST || '127.0.0.1',
-    database: process.env.MYSQL_DATABASE || 'FORMULARIO',
+    database: process.env.MYSQL_DATABASE || 'formulario',
     user: process.env.MYSQL_USER || 'root',
-    password: process.env.MYSQL_PASSWORD || '',
+    password: process.env.MYSQL_PASSWORD || 'Ivanchido2',
     port: process.env.MYSQL_PORT || 3306
 };
 var query = mysql.createPool(credencialesMySql)
