@@ -1,7 +1,7 @@
 const mysql = require("mysql2/promise");
 const { fecha } = require("./Utils");
 const credencialesMySql = {
-    host: process.env.MYSQL_HOST || 'localhost',
+    host: process.env.MYSQL_HOST || '127.0.0.1',
     database: process.env.MYSQL_DATABASE || 'FORMULARIO',
     user: process.env.MYSQL_USER || 'root',
     password: process.env.MYSQL_PASSWORD || '',
